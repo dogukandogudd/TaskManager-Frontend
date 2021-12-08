@@ -1,0 +1,17 @@
+<div class="container-sm" role="main">
+  <div class="row align-items-start">
+    <div class="col">
+      <ul class="nav nav-pills">
+        <li class="nav-item" *ngFor="let view of views" >
+          <a [class]="getCurrentViewClass(view)" aria-current="page" (click)="setCurrentView(view)" routerLink="{{view.routerLink}}">{{view.title}}</a>
+        </li>
+        <!-- <p *ngIf="currentView">{{currentView.title}}</p> -->
+      </ul>
+      <br>
+      <!-- <app-task></app-task> -->
+       <!-- <app-day></app-day> -->
+      <!-- <app-week></app-week> -->
+      <!-- <app-month></app-month> -->
+    </div>
+  </div>
+
