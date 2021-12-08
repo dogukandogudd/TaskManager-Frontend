@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Location } from 'src/app/models/location';
 import { LocationService } from 'src/app/services/location.service';
 
@@ -13,7 +14,8 @@ export class LocationComponent implements OnInit {
   currentLocation: Location;
   dataLoaded =false;
 
-  constructor(private locationService:LocationService) { }
+  constructor(private locationService:LocationService,
+    private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.getLocation();
@@ -28,6 +30,7 @@ export class LocationComponent implements OnInit {
 
   setCurrentLocation(location: Location) {
     this.currentLocation=location;
+    this.toastrService.info('Location is displaying ', location.locationName);
     console.log(location.locationName)
  }
 

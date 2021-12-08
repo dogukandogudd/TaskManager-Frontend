@@ -5,8 +5,10 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { TaskService } from 'src/app/services/task.service';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-task-add',
   templateUrl: './task-add.component.html',
@@ -17,7 +19,9 @@ export class TaskAddComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,10 +44,11 @@ export class TaskAddComponent implements OnInit {
       this.taskService.add(taskModel).subscribe(response=>{
         console.log(response)
         console.log(taskModel);
-        console.log('taskeklendi');
+        this.toastrService.success('Successful', 'Task Added');
+        this.router.navigate(['/']);
       })
     } else {
-      console.log('formeksik')
+      this.toastrService.error('Your form is missing ', 'Attention ');
     }
   }
 }

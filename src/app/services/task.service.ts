@@ -17,7 +17,7 @@ export class TaskService {
   }
 
   getTasksByLocation(locationId: number): Observable<ListResponseModel<Task>> {
-    let newPath = this.apiUrl + 'task/getbylocation?locationId=' + locationId;
+    let newPath = this.apiUrl + 'Task/getbylocation?LocationId=' + locationId;
     return this.httpClient.get<ListResponseModel<Task>>(newPath);
   }
   getTasksByStatus(statusId: number): Observable<ListResponseModel<Task>> {

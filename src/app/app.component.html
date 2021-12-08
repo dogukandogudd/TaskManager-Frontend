@@ -1,45 +1,14 @@
 <div class="container">
-<app-navi></app-navi>
-<!-- <app-main></app-main> -->
-<div class="row">
-  <div class="col-md-2">
+  <app-navi></app-navi>
 
-    <!-- <header class="pb-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill="currentColor" class="bi bi-filter-circle" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-          <path d="M7 11.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
-        </svg>
-        <span class="fs-4">Filters</span>
-      </a>
-    </header> -->
-    <app-filter></app-filter>
-    <!-- <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-
-         <app-filter></app-filter>
-         <app-location></app-location>
-        <app-status></app-status>
-
-      </div>
-    </div> -->
-
+  <div class="row">
+    <div class="col-md-2">
+      <app-filter></app-filter>
+    </div>
+    <div class="col-md-10">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <div class="col-md-10">
 
-
-    <router-outlet></router-outlet>
-
-  </div>
+  <app-footer></app-footer>
 </div>
-
-<app-footer></app-footer>
-</div>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
