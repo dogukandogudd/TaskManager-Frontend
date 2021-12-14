@@ -1,14 +1,44 @@
 <header class="pb-3 mb-4 border-bottom">
-  <a routerLink="/status" class="d-flex align-items-center text-dark text-decoration-none">
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill="currentColor" class="bi bi-hexagon-half" viewBox="0 0 16 16">
-      <path d="M14 4.577v6.846L8 15V1l6 3.577zM8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/>
-    </svg>
-    <span  class="fs-4">Situations</span>
-  </a>
+  <div class="card text-center">
+    <div class="card-header">
+      <a
+        routerLink="/status"
+        class="d-flex align-items-center text-dark text-decoration-none"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="32"
+          fill="currentColor"
+          class="bi bi-hexagon-half"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M14 4.577v6.846L8 15V1l6 3.577zM8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"
+          />
+        </svg>
+        <span class="fs-4">Status</span>
+      </a>
+    </div>
+    <div class="card-body">
+      <div
+        class="form-check form-check-inline"
+        *ngFor="let stat of status"
+        (click)="setCurrentStatus(stat)"
+        [class]="getCurrentStatusClass(stat)"
+        routerLink="/task/status/{{ stat.statusId }}"
+      >
+        <input
+          class="form-check-input"
+          type="radio"
+          name="inlineRadioOptions"
+          id="inlineRadio1"
+          value="option1"
+        />
+        <label class="form-check-label" for="inlineRadio1">{{
+          stat.statusName
+        }}</label>
+      </div>
+    </div>
+  </div>
 </header>
-
-<div class="list-group">
-  <a href="#" *ngFor="let stat of status" (click)="setCurrentStatus(stat)"
-  [class]="getCurrentStatusClass(stat)" routerLink="/task/status/{{stat.statusId}}"class="list-group-item list-group-item-action">{{ stat.statusName }}</a>
-
-</div>

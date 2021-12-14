@@ -20,7 +20,8 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import{ToastrModule}from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { TaskAddComponent } from './components/task-add/task-add.component';
-import { FilterComponent } from './components/filter/filter.component'
+import { FilterComponent } from './components/filter/filter.component';
+import { TaskDetailComponent } from './components/task-detail/task-detail.component'
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { FilterComponent } from './components/filter/filter.component'
     SearchComponent,
     FilterPipePipe,
     TaskAddComponent,
-    FilterComponent
+    FilterComponent,
+    TaskDetailComponent
   ],
   imports: [
     BrowserModule,

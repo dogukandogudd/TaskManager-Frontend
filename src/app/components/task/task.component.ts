@@ -13,7 +13,9 @@ export class TaskComponent implements OnInit {
   tasks: Task[] = [];
   currentTask: Task;
   dataLoaded = false;
-  filterText="";
+  filterText = '';
+  numOfTasks: number;
+  getTaskForDetail: Task;
 
   constructor(
     private taskService: TaskService,
@@ -37,6 +39,7 @@ export class TaskComponent implements OnInit {
     this.taskService.getTasks().subscribe((response) => {
       this.tasks = response.data;
       this.dataLoaded = true;
+      this.numOfTasks = response.data.length;
     });
   }
 
@@ -56,6 +59,8 @@ export class TaskComponent implements OnInit {
 
   setCurrentTask(task: Task) {
     this.currentTask = task;
+    console.log(task.taskId + ' ' + task.taskTitle + ' seçildi');
+    // this.getCurrentTaskDetail()
   }
 
   getCurrentTaskClass(task: Task) {
@@ -65,4 +70,14 @@ export class TaskComponent implements OnInit {
       return 'list-group-item d-flex justify-content-between align-items-start';
     }
   }
+  // getCurrentTaskDetail() {
+  //    this.getTaskForDetail =this.currentTask ;
+  //   console.log(this.getTaskForDetail)
+  //   // this.getTaskForDetail = task;
+  //   // if (task == this.currentTask) {
+  //   //   return 'list-group-item list-group-item-primary d-flex justify-content-between align-items-start';
+  //   // } else {
+  //   //   return 'list-group-item d-flex justify-content-between align-items-start';
+  //   // }
+  // }
 }

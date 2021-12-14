@@ -1,6 +1,6 @@
 <header class="pb-3 mb-4 border-bottom">
   <a
-    routerLink="/location"
+    routerLink="/tasks"
     class="d-flex align-items-center text-dark text-decoration-none"
   >
     <svg
@@ -26,43 +26,49 @@
   </a>
 </header>
 
-<div class="container p-3 mb-4 bg-light">
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Task Search</label>
-    <input
-      type="text"
-      [(ngModel)]="filterText"
-      class="form-control"
-      id="filtertext"
-      placeholder="Enter Search Phrase"
-    />
-  </div>
-
-  <div *ngIf="filterText.length > 2" class="alert alert-primary">
-    {{ filterText }} Searching..
-  </div>
-  <div
-    *ngIf="dataLoaded == false"
-    class="spinner-border text-primary"
-    role="status"
-  >
-    <span class="visually-hidden">Loading...</span>
-  </div>
-
-  <ol *ngIf="dataLoaded == true" class="list-group list-group-numbered">
-    <li
-      *ngFor="let task of tasks | filterPipe: filterText"
-      (click)="setCurrentTask(task)"
-      [class]="getCurrentTaskClass(task)"
-    >
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">
-          {{ task.taskTitle }}
-        </div>
-        {{ task.taskDescription }}
+<div class="row">
+  <div class="col-md-12">
+    <div class="container p-3 mb-4 bg-light">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Task Search</label
+        >
+        <!-- <span class="badge bg-success rounded-pill">{{ numOfTasks }}</span> -->
+        <input
+          type="text"
+          [(ngModel)]="filterText"
+          class="form-control"
+          id="filtertext"
+          placeholder="Enter Search Phrase"
+        />
       </div>
-      <span class="badge bg-info rounded-pill">{{ task.locationId }}</span>
-      <span class="badge bg-primary rounded-pill">{{ task.statusId }}</span>
-    </li>
-  </ol>
+
+      <div *ngIf="filterText.length > 2" class="alert alert-primary">
+        {{ filterText }} Searching..
+      </div>
+      <div
+        *ngIf="dataLoaded == false"
+        class="spinner-border text-primary"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <ol *ngIf="dataLoaded == true" class="list-group list-group-numbered">
+        <li
+          *ngFor="let task of tasks | filterPipe: filterText"
+          (click)="setCurrentTask(task)"
+          [class]="getCurrentTaskClass(task)"
+          routerLink="/task/detail/{{ task.taskId }}"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">
+              {{ task.taskTitle }}
+            </div>
+          </div>
+        </li>
+      </ol>
+      <br />
+    </div>
+  </div>
 </div>
